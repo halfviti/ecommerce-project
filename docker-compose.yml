@@ -1,9 +1,5 @@
 version: '3'
 services:
-  db:
-    image: postgres
-    volumes:
-    - dbdata:/var/lib/postgresql/data
   web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
@@ -11,8 +7,4 @@ services:
       - .:/simple_store
     ports:
       - "80:3000"
-    depends_on:
-      - db
     restart: unless-stopped
-volumes:
-  dbdata:
