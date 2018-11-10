@@ -1,0 +1,7 @@
+<%= content_tag :div, class: "temp_information", data: {temp: @products} do %>
+<% end %>
+
+<h1>Products</h1>
+<% @products.each do |product| %>
+    <p><%= product.name.capitalize %></p>
+<% end %>
