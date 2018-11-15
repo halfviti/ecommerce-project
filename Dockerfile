@@ -1,6 +1,6 @@
 FROM ruby:2.5
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs imagemagick
 RUN mkdir /simple_store
 WORKDIR /simple_store
 COPY Gemfile /simple_store/Gemfile
