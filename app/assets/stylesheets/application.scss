@@ -24,6 +24,8 @@ $main-font: 'Vesper Libre', serif;
     background-color: $main;
     font-family: $title-font;
 
+    min-height: 6vh;
+
     a, a:link, a:visited{
     color:white;
     }
@@ -32,6 +34,29 @@ $main-font: 'Vesper Libre', serif;
         color: $main-light;
     }
  }
+
+ .d-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-column-gap: .5em;
+    grid-row-gap: 3px;
+    justify-content: center;
+
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+.d-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .card{
+        max-height: 50vh;
+    }
+}
+
+
 
  .main{
      background-color: $main-light;
