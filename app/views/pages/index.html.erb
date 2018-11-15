@@ -3,14 +3,10 @@
     <h5 class="ml-2">To the Bullock and Star Hardware Company</h2> 
     <hr>
     <h2>Featured Products</h2>
-    <section class="d-grid">
-        <div class="card">
-        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        </div>
+    <section class="d-flex">
+        <% @featured.each do |feature| %>
+            <%= render partial: 'products/product_card', 
+                locals: {product: feature } %>
+        <% end %>
     </section>
 <div>
