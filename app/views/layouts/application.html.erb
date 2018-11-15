@@ -4,12 +4,12 @@
     <title>Bullock & Star Hardware</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer+SC|Vesper+Libre" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <%= render "components/menu" %>
-  <body>
+  <body class="main">
     <%= yield %>
   </body>
 </html>

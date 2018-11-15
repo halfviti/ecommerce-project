@@ -12,4 +12,34 @@
  *
  */
 
- @import 'bootstrap' 
+ @import 'bootstrap';
+
+$main: rgb(114, 60, 16);
+$main-dark: rgb(53, 28, 7);
+$main-light: rgba(209, 152, 106, 0.705);
+$title-font: 'IM Fell Great Primer SC', serif;
+$main-font: 'Vesper Libre', serif;
+
+.navbar{
+    background-color: $main;
+    font-family: $title-font;
+
+    a, a:link, a:visited{
+    color:white;
+    }
+
+    a:hover{
+        color: $main-light;
+    }
+ }
+
+ .main{
+     background-color: $main-light;
+     font-family: $main-font;
+     color: $main-dark;
+
+     h1,h2,h3,h4,h5,h6{
+         font-family: $title-font;
+     }
+ }
+ 
