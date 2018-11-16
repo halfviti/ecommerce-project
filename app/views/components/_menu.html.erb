@@ -19,5 +19,10 @@
             <%= link_to "Contact us", "contact", class: "nav-link" %>
         </li>
     </ul>
+        <%= form_tag(search_path, method: "get", class: "form-inline") do %>
+        <%= text_field_tag(:query, "", class: "form-control", placeholder: "Search Products") %>
+        <%= collection_select(:query_by, :category_id, Category.all.order(:name), :id, :name, {:include_blank => 'By Category'}, {class: "form-control"}) %>
+        <%= submit_tag("Search", class: "btn btn-outline-warning mx-1") %>
+        <% end %>
     </div>
 </nav>
