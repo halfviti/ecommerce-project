@@ -56,7 +56,22 @@ $main-font: 'Vesper Libre', serif;
     }
 }
 
+.pagination{
+    justify-content: flex-end;
+    margin-right: 5px;
+    margin-bottom: 5px;
+     
+    span{
+        padding: 0px 5px;
+        margin: 0px 1px;
+        border-radius: 5px;
+        background-color: $main-dark;
+    }
+}
 
+.bg-dark-brown{
+    background-color: $main;
+}
 
  .main{
      background-color: $main-light;
