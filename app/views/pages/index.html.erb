@@ -3,7 +3,7 @@
     <h5 class="ml-2">To the Bullock and Star Hardware Company</h2> 
     <hr>
     <h2>Featured Products</h2>
-    <section class="d-flex">
+    <section class="row justify-content-center">
         <% @featured.each do |feature| %>
             <%= render partial: 'products/product_card', 
                 locals: {product: feature } %>

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-    @featured = Product.all
+    @featured = Product.limit(4)
   end
 
   def permalink
