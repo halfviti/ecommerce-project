@@ -1,0 +1,8 @@
+<div class = "container mt-5">
+    <%= paginate @products, window: 1 %>
+    <h1>Products</h1>
+    <% @products.each do |product| %>
+        <%= render partial: 'products/product_card', 
+                locals: {product: product } %>
+    <% end %>
+<div>
