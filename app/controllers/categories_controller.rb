@@ -1,5 +1,8 @@
 class CategoriesController < ApplicationController
+
   def show
-    @products = Category.find(params[:id]).products.all.page params[:page]
+    @category = Category.find(params[:id])
+    @products = @category.products.all.page params[:page]
+    breadcrumb @category.name, category_path(params[:id])
   end
 end
