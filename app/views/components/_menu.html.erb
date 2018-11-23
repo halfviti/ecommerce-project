@@ -29,6 +29,9 @@
         <li>
             <%= link_to "Contact us", "contact", class: "nav-link" %>
         </li>
+        <li>
+            <%= link_to fa_icon('shopping-cart'), cart_index_path, class: "nav-link" %>
+        </li>
     </ul>
         <%= form_tag(search_path, method: "get", class: "form-inline") do %>
         <%= text_field_tag(:query, "", class: "form-control", placeholder: "Search Products") %>

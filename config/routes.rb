@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'cart/index'
-  get 'cart/add_product'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :products, only: %i[index show]

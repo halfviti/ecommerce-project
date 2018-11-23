@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= @product.name %></h5>
                     <p class="card-text"><%= @product.description %></p>
-                    <%= link_to "Add To Cart", add_product_cart_index_path(product_id: @product, quantity: 1), method: :post, :class=>"btn btn-primary"%>
+                    <%= link_to fa_icon('shopping-cart', text: "Add To Cart", right: true), add_product_cart_index_path(product_id: @product, quantity: 1), method: :post, :class=>"btn btn-dark"%>
                 </div>
         </div>
     </div>
