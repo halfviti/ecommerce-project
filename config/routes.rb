@@ -1,7 +1,18 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+  get 'cart/index'
+  get 'cart/add_product'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :products, only: [:index, :show]
+  resources :products, only: %i[index show]
+
+  resources :cart, only: [:index] do
+    collection do
+      post :add_product
+    end
+  end
+
   resources :categories, only: [:show]
 
   get 'search', to: 'pages#search'

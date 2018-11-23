@@ -1,5 +1,4 @@
 <div class="container">
-
      <div class="row justify-content-center">
         <div class="col-md-6 mt-5">
             <div class="card bg-dark-brown text-white">
@@ -7,7 +6,7 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= @product.name %></h5>
                     <p class="card-text"><%= @product.description %></p>
-                    <%= link_to "View Product", @product, :class=>"btn btn-primary"%>
+                    <%= link_to "Add To Cart", add_product_cart_index_path(product_id: @product, quantity: 1), method: :post, :class=>"btn btn-primary"%>
                 </div>
         </div>
     </div>
