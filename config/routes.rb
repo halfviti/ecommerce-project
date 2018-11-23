@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :cart, only: [:index] do
     collection do
       post :add_product
+      post :remove_product
+      post :update_quantity
     end
   end
 
