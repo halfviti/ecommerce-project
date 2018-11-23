@@ -1,2 +1,24 @@
-<h1>Cart#index</h1>
-<p>Find me in app/views/cart/index.html.erb</p>
+<div class="container">
+
+<h1>Your Shopping Cart</h1>
+    <ul class="list-group">
+    <% @cart.each do |item|  %>
+        <div class="media">
+            <img class="mr-3" src="<%= item[:product].image_url(:thumb) %>" alt="<%= item[:product].name %>">
+            <div class="media-body">
+                <h5 class="mt-0"><%= item[:product].name %></h5>
+                <%= form_tag({controller: "cart", action: "update_quantity"}, method: "post", class: "form-inline pull-right") do %>
+                <%= hidden_field_tag 'product_id', item[:product].id %>
+                <div class="form-group mb-2">
+                <%= label_tag('Quantity', "Quantity:") %>
+                <%= number_field_tag('quantity', item[:quantity]) %>
+                </div>
+                <%= submit_tag("Update Quantity", class: "btn btn-primary mb-2") %>
+                <% end %>
+
+                <%= button_to "Remove Item", remove_product_cart_index_path(product_id: item[:product].id), :class => "btn-danger", :method => "post" %>
+            </div>
+        </div>
+    <% end %>
+    </ul>
+</div>
