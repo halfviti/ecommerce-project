@@ -1,5 +1,14 @@
+<% if flash[:removed_product] %>
+    <div class="alert alert-danger text-center">
+        <%= removed_product %>
+    </div>
+<% end %>
+<% if flash[:updated_quantity] %>
+    <div class="alert alert-success text-center">
+        <%= updated_quantity %>
+    </div>
+<% end %>
 <div class="container">
-
 <h1>Your Shopping Cart</h1>
     <ul class="list-group">
     <% @cart.each do |item|  %>
