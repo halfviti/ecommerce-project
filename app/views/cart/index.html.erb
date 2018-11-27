@@ -1,11 +1,11 @@
 <% if flash[:removed_product] %>
-    <div class="alert alert-danger text-center">
-        <%= removed_product %>
+    <div id="notice_wrapper" class="alert transparent-danger text-center">
+        <p><%= removed_product %></p>
     </div>
 <% end %>
 <% if flash[:updated_quantity] %>
-    <div class="alert alert-success text-center">
-        <%= updated_quantity %>
+    <div id="notice_wrapper" class="alert transparent-success text-center">
+        <p><%= updated_quantity %></p>
     </div>
 <% end %>
 <div class="container">
