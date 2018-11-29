@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :products, only: %i[index show]
 
+  get '/checkout' => 'checkout#index', :as => :checkout
+  resources :checkout, only: %i[confirmation]
+
   resources :cart, only: [:index] do
     collection do
       post :add_product
+      get :clear
       post :remove_product
       post :update_quantity
     end

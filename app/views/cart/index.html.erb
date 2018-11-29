@@ -1,13 +1,3 @@
-<% if flash[:removed_product] %>
-    <div id="notice_wrapper" class="alert transparent-danger text-center">
-        <p><%= removed_product %></p>
-    </div>
-<% end %>
-<% if flash[:updated_quantity] %>
-    <div id="notice_wrapper" class="alert transparent-success text-center">
-        <p><%= updated_quantity %></p>
-    </div>
-<% end %>
 <div class="container">
 <h1>Your Shopping Cart</h1>
     <ul class="list-group">
@@ -22,7 +12,7 @@
                 <%= label_tag('Quantity', "Quantity:") %>
                 <%= number_field_tag('quantity', item[:quantity]) %>
                 </div>
-                <%= submit_tag("Update Quantity", class: "btn btn-primary mb-2") %>
+                <%= submit_tag("Update Quantity", class: "btn btn-primary mb-2 ml-2") %>
                 <% end %>
 
                 <%= button_to "Remove Item", remove_product_cart_index_path(product_id: item[:product].id), :class => "btn-danger", :method => "post" %>
@@ -30,4 +20,12 @@
         </div>
     <% end %>
     </ul>
+    <% if session[:cart].empty? %>
+        <p>Your cart is currently empty. Try adding some <%= link_to "products", products_path %> to it.</p>
+    <% else %>
+        <div class="btn-group pull-right">
+            <%= link_to "Clear Cart", clear_cart_index_path, :method => "get", :class => "btn btn-danger mt-2" %>
+            <%= link_to "Checkout", checkout_path, :class => "btn btn-primary mt-2" %>
+        </div>
+    <% end %>
 </div>
