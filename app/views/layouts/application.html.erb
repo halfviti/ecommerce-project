@@ -11,6 +11,16 @@
   </head>
   <%= render "components/menu" %>
   <body class="main">
+    <% if flash[:danger] %>
+    <div id="notice_wrapper" class="alert transparent-danger text-center">
+        <p><%= danger %></p>
+    </div>
+    <% end %>
+    <% if flash[:success] %>
+        <div id="notice_wrapper" class="alert transparent-success text-center">
+            <p><%= success %></p>
+        </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
