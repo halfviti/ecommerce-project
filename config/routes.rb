@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :products, only: %i[index show]
 
   get '/checkout' => 'checkout#index', :as => :checkout
-  resources :checkout, only: %i[confirmation]
+  get '/checkout/confirmation' => 'checkout#confirmation', :as => :confirmation
 
   resources :cart, only: [:index] do
     collection do
