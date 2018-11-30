@@ -1,31 +1,28 @@
-<div class="container">
-<h1>Your Shopping Cart</h1>
-    <ul class="list-group">
-    <% @cart.each do |item|  %>
-        <div class="media">
-            <img class="mr-3" src="<%= item[:product].image_url(:thumb) %>" alt="<%= item[:product].name %>">
-            <div class="media-body">
-                <h5 class="mt-0"><%= item[:product].name %></h5>
-                <%= form_tag({controller: "cart", action: "update_quantity"}, method: "post", class: "form-inline pull-right") do %>
-                <%= hidden_field_tag 'product_id', item[:product].id %>
-                <div class="form-group mb-2">
-                <%= label_tag('Quantity', "Quantity:") %>
-                <%= number_field_tag('quantity', item[:quantity]) %>
-                </div>
-                <%= submit_tag("Update Quantity", class: "btn btn-primary mb-2 ml-2") %>
-                <% end %>
-
-                <%= button_to "Remove Item", remove_product_cart_index_path(product_id: item[:product].id), :class => "btn-danger", :method => "post" %>
+<ul class="list-group">
+<% @cart.each do |item|  %>
+    <div class="media">
+        <img class="mr-3" src="<%= item[:product].image_url(:thumb) %>" alt="<%= item[:product].name %>">
+        <div class="media-body">
+            <h5 class="mt-0"><%= item[:product].name %></h5>
+            <%= form_tag({controller: "cart", action: "update_quantity"}, method: "post", class: "form-inline pull-right") do %>
+            <%= hidden_field_tag 'product_id', item[:product].id %>
+            <div class="form-group mb-2">
+            <%= label_tag('Quantity', "Quantity:") %>
+            <%= number_field_tag('quantity', item[:quantity]) %>
             </div>
+            <%= submit_tag("Update Quantity", class: "btn btn-primary mb-2 ml-2") %>
+            <% end %>
+
+            <%= button_to "Remove Item", remove_product_cart_index_path(product_id: item[:product].id), :class => "btn-danger", :method => "post" %>
         </div>
-    <% end %>
-    </ul>
-    <% if session[:cart].empty? %>
-        <p>Your cart is currently empty. Try adding some <%= link_to "products", products_path %> to it.</p>
-    <% else %>
-        <div class="btn-group pull-right">
-            <%= link_to "Clear Cart", clear_cart_index_path, :method => "get", :class => "btn btn-danger mt-2" %>
-            <%= link_to "Checkout", checkout_path, :class => "btn btn-primary mt-2" %>
-        </div>
-    <% end %>
-</div>
+    </div>
+<% end %>
+</ul>
+<% if session[:cart].empty? %>
+    <p>Your cart is currently empty. Try adding some <%= link_to "products", products_path %> to it.</p>
+<% else %>
+    <div class="btn-group pull-right">
+        <%= link_to "Clear Cart", clear_cart_index_path, :method => "get", :class => "btn btn-danger mt-2" %>
+        <%= link_to "Checkout", checkout_path, :class => "btn btn-primary mt-2" %>
+    </div>
+<% end %>

@@ -1,17 +1,13 @@
-<div class = "container mt-5">
-    <h1>Products</h1>
-    <%= render partial: 'components/breadcrumb' %>
-    <%= form_tag(products_path, method: "get", class: "form-inline") do %>
-    <%= select_tag :filter, options_for_select(filter_options, params[:filter]), class: "form-control" %>
-    <%= button_tag('Apply Filter', type: "submit", class: "btn btn-primary mx-2")%>
-    <% end %>
-    <%= paginate @products, window: 1 %>
-    <div class="row justify-content-center">
-    <% @products.each do |product| %>
-        <%= render partial: 'products/product_card', 
-                locals: {product: product } %>
-    <% end %>
-    </div>
-<div>
+<%= form_tag(products_path, method: "get", class: "form-inline") do %>
+<%= select_tag :filter, options_for_select(filter_options, params[:filter]), class: "form-control" %>
+<%= button_tag('Apply Filter', type: "submit", class: "btn btn-primary mx-2")%>
+<% end %>
+<%= paginate @products, window: 1 %>
+<div class="row justify-content-center">
+<% @products.each do |product| %>
+    <%= render partial: 'products/product_card', 
+            locals: {product: product } %>
+<% end %>
+</div>
 
 

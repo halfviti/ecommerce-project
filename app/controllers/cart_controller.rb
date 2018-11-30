@@ -7,6 +7,7 @@ class CartController < ApplicationController
   before_action :set_return, only: %i[add_product remove_product update_quantity clear]
 
   def index
+    @title = 'Your Shopping Cart'
     @cart = helpers.read_cart
   end
 

@@ -2,6 +2,7 @@
 
 class ProductsController < ApplicationController
   def index
+    @title = 'Products'
     breadcrumb 'Products', :products_path
     if params[:filter].present?
       if params[:filter] == 'new'
@@ -20,6 +21,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @title = @product.name
     breadcrumb @product.category.name, category_path(@product.category_id)
     breadcrumb @product.name, product_path(params[:id])
   end

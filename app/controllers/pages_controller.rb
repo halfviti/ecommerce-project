@@ -2,11 +2,13 @@
 
 class PagesController < ApplicationController
   def index
+    @title = 'Welcome!'
     @featured = Product.limit(3)
   end
 
   def permalink
     @page = Page.find_by(permalink: params[:permalink])
+    @title = @page.title
     if @page.nil?
       redirect_to root_url
     else
@@ -15,6 +17,7 @@ class PagesController < ApplicationController
   end
 
   def search
+    @title = 'Search Results'
     if params[:query_by][:category_id].present?
       category = Category.find(params[:query_by][:category_id])
       @search_results = category.products
