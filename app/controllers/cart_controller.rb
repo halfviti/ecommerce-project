@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CartController < ApplicationController
+  include ApplicationHelper
   before_action :define_quantity, only: %i[add_product update_quantity]
   before_action :get_product, only: %i[add_product remove_product update_quantity]
   before_action :set_return, only: %i[add_product remove_product update_quantity clear]
@@ -44,9 +45,5 @@ class CartController < ApplicationController
 
   def define_quantity
     @quantity = params[:quantity].to_i
-  end
-
-  def set_return
-    session[:return_to] ||= request.referer
   end
 end
