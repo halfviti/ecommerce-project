@@ -1,20 +1,22 @@
 <div class="container">
 <h1>Your Order</h1>
     <ul class="list-group">
-    <% @order.each do |item|  %>
+    <% @order.order_products.each do |item|  %>
         <div class="media">
-            <img class="mr-3" src="<%= item[:product].image_url(:thumb) %>" alt="<%= item[:product].name %>">
+            <img class="mr-3" src="<%= item.product.image_url(:thumb) %>" alt="<%= item.product.name %>">
             <div class="media-body">
-                <h5 class="mt-0"><%= item[:product].name %></h5>
+                <h5 class="mt-0"><%= item.product.name %></h5>
                 <div>
-                    <p>Quantity: <%= item[:quantity] %></p>
-                    <p>Price: <%= number_to_currency(item[:product].price)%></p>
+                    <p>Quantity: <%= item.quantity %></p>
+                    <p>Price: <%= number_to_currency(item.product.price)%></p>
                 </div>
             </div>
         </div>
     <% end %>
     </ul>
     <div>
-        <blockquote>Total: <%= number_to_currency(@order.sum {|x| x[:product].price }) %></blockquote>
+        <blockquote>Total: <%= number_to_currency(@order.order_products.sum {|x| x.price * x.quantity }) %></blockquote>
+    </div>
+        <%= link_to "Confirm Order", confirmation_path, :class => "btn btn-primary mt-2 pull-right" %>
     </div>
 </div>
