@@ -18,8 +18,7 @@
 //= require bootstrap
 //= require_tree .
 
-
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
     setTimeout(function(){
         $('#notice_wrapper').fadeOut("slow", function() {
             $(this).remove();
