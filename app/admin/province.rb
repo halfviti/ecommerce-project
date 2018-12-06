@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Province do
-  permit_params :name, tax_ids: []
+  permit_params :province, tax_ids: []
 
   form do |f|
     f.inputs 'Province' do
